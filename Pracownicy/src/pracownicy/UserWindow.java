@@ -13,12 +13,20 @@ import java.util.List;
  * @author Maciek
  */
 public class UserWindow extends javax.swing.JFrame {
-     private static List<Worker> workers = new ArrayList<>(); 
-     private static Worker worker;
-    /**
-     * Creates new form UserWindow
-     */
-    public UserWindow() {
+
+    private static List<Worker> workers = new ArrayList<>();
+    private static Worker worker;
+    private static UserWindow userWindow;
+
+    public static UserWindow getInstance() {
+        if (userWindow == null) {
+            userWindow = new UserWindow();
+        }
+
+        return userWindow;
+    }
+
+    private UserWindow() {
         initComponents();
     }
 
@@ -194,8 +202,8 @@ public class UserWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        worker=new Worker(jTextFieldName.getText(),jTextFieldSurname.getText(),jTextFieldYear.getText(),jTextFieldMonth.getText(),jTextFieldDay.getText(),
-                jTextFieldSalary.getText(),jTextFieldBonus.getText(),jTextFieldStartYear.getText(),jTextFieldCompany.getText(),jTextFieldPosition.getText());
+        worker = new Worker(jTextFieldName.getText(), jTextFieldSurname.getText(), jTextFieldYear.getText(), jTextFieldMonth.getText(), jTextFieldDay.getText(),
+                jTextFieldSalary.getText(), jTextFieldBonus.getText(), jTextFieldStartYear.getText(), jTextFieldCompany.getText(), jTextFieldPosition.getText());
         workers.add(worker);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
