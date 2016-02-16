@@ -147,7 +147,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Wybie&#x17c; wykres :"/>
+        <Property name="text" type="java.lang.String" value="Wybierz wykres :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">

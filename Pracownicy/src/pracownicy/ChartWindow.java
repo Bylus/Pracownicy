@@ -58,7 +58,7 @@ public class ChartWindow extends javax.swing.JFrame {
 
         jComboBoxChart.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Zarobki", "Stanowiska" }));
 
-        jLabel4.setText("Wybież wykres :");
+        jLabel4.setText("Wybierz wykres :");
 
         jLabel5.setText("Największa płaca :");
 
