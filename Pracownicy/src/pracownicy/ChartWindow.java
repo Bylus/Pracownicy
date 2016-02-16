@@ -55,6 +55,11 @@ public class ChartWindow extends javax.swing.JFrame {
         jButtonClose.setText("Wyjście");
 
         jButtonShowChart.setText("Pokaż wykres");
+        jButtonShowChart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonShowChartActionPerformed(evt);
+            }
+        });
 
         jComboBoxChart.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Zarobki", "Stanowiska" }));
 
@@ -127,6 +132,10 @@ public class ChartWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonShowChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowChartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonShowChartActionPerformed
 
     /**
      * @param args the command line arguments
