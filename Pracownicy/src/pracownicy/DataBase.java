@@ -61,7 +61,7 @@ public class DataBase {
     * @desc get all workers from database
     * @return - ArrayList<Worker> - List of all workers
     */
-    public ArrayList<Worker> getCars(){
+    public ArrayList<Worker> getWorkers(){
            
         Connection c = null;
         Statement stmt = null;

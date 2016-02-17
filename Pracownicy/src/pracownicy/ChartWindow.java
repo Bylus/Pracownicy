@@ -5,13 +5,17 @@
  */
 package pracownicy;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Szymon
  */
 public class ChartWindow extends javax.swing.JFrame {
     
+    private static String DATA_BASE_NAME = "baza";
     private static ChartWindow chartWindow;
+    ArrayList<Worker> lista = new ArrayList<>();
     
     public synchronized static ChartWindow getInstance() {
         if (chartWindow == null) {
@@ -25,9 +29,15 @@ public class ChartWindow extends javax.swing.JFrame {
      * Creates new form ChartWindow
      */
     public ChartWindow() {
+        DataBase db = new DataBase(DATA_BASE_NAME);
+        this.lista = db.getWorkers();
         initComponents();
     }
 
+    private void countWorkers(){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,10 +158,18 @@ public class ChartWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @desc creates selected chart
+     * @param evt 
+     */
     private void jButtonShowChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowChartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonShowChartActionPerformed
 
+    /**
+     * @desc disposes of chartWindow
+     * @param evt 
+     */
     private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCloseActionPerformed
