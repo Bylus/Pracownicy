@@ -17,6 +17,7 @@ public class ChartWindow extends javax.swing.JFrame {
         if (chartWindow == null) {
             chartWindow = new ChartWindow();            
         }
+        chartWindow.setVisible(true);
         return chartWindow;
     }
     
@@ -25,7 +26,6 @@ public class ChartWindow extends javax.swing.JFrame {
      */
     public ChartWindow() {
         initComponents();
-        this.setVisible(true);
     }
 
     /**
@@ -48,7 +48,7 @@ public class ChartWindow extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Wykresy");
 
         jListWorkers.setModel(new javax.swing.AbstractListModel() {
@@ -63,6 +63,11 @@ public class ChartWindow extends javax.swing.JFrame {
         jLabel2.setText("Średnie zarobki :");
 
         jButtonClose.setText("Wyjście");
+        jButtonClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCloseActionPerformed(evt);
+            }
+        });
 
         jButtonShowChart.setText("Pokaż wykres");
         jButtonShowChart.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +99,7 @@ public class ChartWindow extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonShowChart)
                                     .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jComboBoxChart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButtonClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -129,7 +134,7 @@ public class ChartWindow extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
@@ -146,6 +151,10 @@ public class ChartWindow extends javax.swing.JFrame {
     private void jButtonShowChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowChartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonShowChartActionPerformed
+
+    private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonCloseActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

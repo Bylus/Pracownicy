@@ -62,6 +62,9 @@ public class UserWindow extends javax.swing.JFrame {
         jTextFieldStartYear = new javax.swing.JTextField();
         jTextFieldCompany = new javax.swing.JTextField();
         jTextFieldPosition = new javax.swing.JTextField();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItemCharts = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +102,20 @@ public class UserWindow extends javax.swing.JFrame {
                 jTextFieldCompanyActionPerformed(evt);
             }
         });
+
+        jMenu1.setText("Narzędzia");
+
+        jMenuItemCharts.setText("Wykresy");
+        jMenuItemCharts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemChartsActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemCharts);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,7 +213,7 @@ public class UserWindow extends javax.swing.JFrame {
                     .addComponent(jTextFieldDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAdd)
                     .addComponent(jTextFieldPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -212,6 +229,10 @@ public class UserWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCompanyActionPerformed
 
+    private void jMenuItemChartsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemChartsActionPerformed
+        ChartWindow w = ChartWindow.getInstance();
+    }//GEN-LAST:event_jMenuItemChartsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
@@ -226,6 +247,9 @@ public class UserWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemCharts;
     private javax.swing.JTextField jTextFieldBonus;
     private javax.swing.JTextField jTextFieldCompany;
     private javax.swing.JTextField jTextFieldDay;
