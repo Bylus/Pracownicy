@@ -137,6 +137,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Poka&#x17c; wykres"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonShowChartActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxChart">
       <Properties>
