@@ -10,5 +10,5 @@ package pracownicy;
  * @author Maciek
  */
 public interface Observer {
-    
+    public void update();
 }
