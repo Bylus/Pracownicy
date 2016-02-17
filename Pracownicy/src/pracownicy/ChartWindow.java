@@ -15,7 +15,8 @@ public class ChartWindow extends javax.swing.JFrame {
     
     private static String DATA_BASE_NAME = "baza";
     private static ChartWindow chartWindow;
-    ArrayList<Worker> lista = new ArrayList<>();
+    private ArrayList<Worker> lista = new ArrayList<>();
+    private DataBase db;
     
     public synchronized static ChartWindow getInstance() {
         if (chartWindow == null) {
@@ -29,7 +30,7 @@ public class ChartWindow extends javax.swing.JFrame {
      * Creates new form ChartWindow
      */
     public ChartWindow() {
-        DataBase db = new DataBase(DATA_BASE_NAME);
+        this.db = new DataBase(DATA_BASE_NAME);
         this.lista = db.getWorkers();
         initComponents();
     }
