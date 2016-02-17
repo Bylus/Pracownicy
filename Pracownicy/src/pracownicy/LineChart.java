@@ -16,7 +16,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.RefineryUtilities;
 
 public class LineChart extends JFrame implements Observer {
-
+    private static List<Worker> workers = new ArrayList<>();
     private final Worker worker;
     private static DefaultCategoryDataset data;
     private final Subject subject;
@@ -38,10 +38,13 @@ public class LineChart extends JFrame implements Observer {
         setContentPane(chartPanel);
     }
 
-    private DefaultCategoryDataset createDataset(Worker product) {
+    private DefaultCategoryDataset createDataset(Worker worker) {
         data = new DefaultCategoryDataset();
         // tu trzeba zrobic liste workerow 
         // przejsc o niej i zapisac pracownika i pensje
+        for(Worker worker1 : workers){
+            data.addValue(Double.parseDouble(worker1.getSalary()), "Nazwisko",worker1.getSurname());
+        }
         return null ;
     }
 
@@ -59,7 +62,9 @@ public class LineChart extends JFrame implements Observer {
         RefineryUtilities.centerFrameOnScreen(chart);
         chart.setVisible(true);
     }
-
+    public static void getDataFromDB(){
+        //Select wszystkich pracownikow i zapisz do listy workers
+    }
     @Override
     public void update() {
         addValue(worker);

@@ -56,4 +56,20 @@ public class Worker {
         return salary;
     }
 
+    public String getBonus() {
+        return bonus;
+    }
+
+    public String getStartyear() {
+        return startyear;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
 }
