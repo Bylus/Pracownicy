@@ -16,7 +16,6 @@ public class Pracownicy {
      */
     public static void main(String[] args) {
         UserWindow userWindow = UserWindow.getInstance();
-        ChartWindow chartWindow = ChartWindow.getInstance();
     }
     
 }
