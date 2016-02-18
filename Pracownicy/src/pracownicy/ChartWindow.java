@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class ChartWindow extends javax.swing.JFrame {
     
-    private static String DATA_BASE_NAME = "baza";
     private static ChartWindow chartWindow;
     private ArrayList<Worker> lista = new ArrayList<>();
     private DataBase db;
@@ -30,7 +29,7 @@ public class ChartWindow extends javax.swing.JFrame {
      * Creates new form ChartWindow
      */
     public ChartWindow() {
-        this.db = new DataBase(DATA_BASE_NAME);
+        this.db = new DataBase();
         this.lista = db.getWorkers();
         initComponents();
     }
