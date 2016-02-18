@@ -44,6 +44,9 @@ public class ChartWindow extends javax.swing.JFrame {
         this.lista = db.getWorkers();
         this.updateList();
         this.countWorkers();
+        this.minSalary();
+        this.maxSalary();
+        this.avgSalary();
     }
 
     /**
@@ -51,6 +54,66 @@ public class ChartWindow extends javax.swing.JFrame {
      */
     private void countWorkers(){
         this.jLabelWorkerCount.setText("Ilość pracowników : " + lista.size());
+    }
+    
+    /**
+     * Update label showing minimum salary
+     */
+    private void minSalary(){
+        int min = 0;
+        int x;
+        
+        for(int i = 0 ; i < lista.size() ; i++){
+                // Get salary from each worker on the list 
+           x = Integer.parseInt(((Worker)lista.get(i)).getSalary());
+           if(i == 0){
+               min = x;
+           }
+           if(x < min){
+               min = x;
+           }
+        }
+        this.jLabelMinSalary.setText("Najmniejsza płaca : " + min);
+    }
+    
+    /**
+     * Update label showing maximum salary
+     */
+    private void maxSalary(){
+        int max = 0;
+        int x;
+        
+        for(int i = 0 ; i < lista.size() ; i++){
+                // Get salary from each worker on the list 
+           x = Integer.parseInt(((Worker)lista.get(i)).getSalary());
+           if(i == 0){
+               max = x;
+           }
+           if(x > max){
+               max = x;
+           }
+        }
+        this.jLabelMaxSalary.setText("Największa płaca : " + max);
+    }
+    
+    /**
+     * Update label showing avarage salary
+     */
+    private void avgSalary(){
+        int avg = 0;
+        int x;
+        
+        if(lista.size() < 1){
+            avg = 0;
+        } else {
+            for(int i = 0 ; i < lista.size() ; i++){
+                    // Get salary from each worker on the list 
+               x = Integer.parseInt(((Worker)lista.get(i)).getSalary());
+               avg += x;
+            }
+            avg = avg / lista.size();
+        }
+        this.jLabelAvgSalary.setText("Średnie zarobki : " + avg);
     }
     
     /**
