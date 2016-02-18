@@ -5,18 +5,24 @@
  */
 package pracownicy;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Szymon
  */
 public class ChartWindow extends javax.swing.JFrame {
     
+    private static String DATA_BASE_NAME = "baza";
     private static ChartWindow chartWindow;
+    private ArrayList<Worker> lista = new ArrayList<>();
+    private DataBase db;
     
     public synchronized static ChartWindow getInstance() {
         if (chartWindow == null) {
             chartWindow = new ChartWindow();            
         }
+        chartWindow.setVisible(true);
         return chartWindow;
     }
     
@@ -24,10 +30,15 @@ public class ChartWindow extends javax.swing.JFrame {
      * Creates new form ChartWindow
      */
     public ChartWindow() {
+        this.db = new DataBase(DATA_BASE_NAME);
+        this.lista = db.getWorkers();
         initComponents();
-        this.setVisible(true);
     }
 
+    private void countWorkers(){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +59,7 @@ public class ChartWindow extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Wykresy");
 
         jListWorkers.setModel(new javax.swing.AbstractListModel() {
@@ -63,6 +74,11 @@ public class ChartWindow extends javax.swing.JFrame {
         jLabel2.setText("Średnie zarobki :");
 
         jButtonClose.setText("Wyjście");
+        jButtonClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCloseActionPerformed(evt);
+            }
+        });
 
         jButtonShowChart.setText("Pokaż wykres");
         jButtonShowChart.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +110,7 @@ public class ChartWindow extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonShowChart)
                                     .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jComboBoxChart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButtonClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -129,7 +145,7 @@ public class ChartWindow extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
@@ -143,9 +159,21 @@ public class ChartWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @desc creates selected chart
+     * @param evt 
+     */
     private void jButtonShowChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowChartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonShowChartActionPerformed
+
+    /**
+     * @desc disposes of chartWindow
+     * @param evt 
+     */
+    private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonCloseActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
