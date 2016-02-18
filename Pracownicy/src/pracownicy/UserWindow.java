@@ -13,7 +13,7 @@ import java.util.List;
  * @author Maciek
  */
 public class UserWindow extends javax.swing.JFrame {
-
+    private DataBase db;
     private static List<Worker> workers = new ArrayList<>();
     private static Worker worker;
     private static UserWindow userWindow;
@@ -29,6 +29,8 @@ public class UserWindow extends javax.swing.JFrame {
     private UserWindow() {
         initComponents();
         this.setVisible(true);
+        db = new DataBase();
+        
     }
 
     /**
@@ -223,6 +225,7 @@ public class UserWindow extends javax.swing.JFrame {
         worker = new Worker(jTextFieldName.getText(), jTextFieldSurname.getText(), jTextFieldYear.getText(), jTextFieldMonth.getText(), jTextFieldDay.getText(),
                 jTextFieldSalary.getText(), jTextFieldBonus.getText(), jTextFieldStartYear.getText(), jTextFieldCompany.getText(), jTextFieldPosition.getText());
         workers.add(worker);
+        db.insertWorker(worker);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jTextFieldCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCompanyActionPerformed
