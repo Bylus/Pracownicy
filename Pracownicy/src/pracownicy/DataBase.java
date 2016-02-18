@@ -14,10 +14,9 @@ import java.util.ArrayList;
  */
 public class DataBase {
     
-    private String name;
+    private static String NAME = "baza.db";
     
-    public DataBase(String name){
-        this.name = name + ".db";
+    public DataBase(){
         createTable();
     }
     
@@ -31,7 +30,7 @@ public class DataBase {
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:" + this.name);
+            c = DriverManager.getConnection("jdbc:sqlite:" + this.NAME);
 
             stmt = c.createStatement();
             String sql = "INSERT INTO WORKER(ID_CAR, NAME, NAME, SURNAME, YEAR, MONTH, "
@@ -70,7 +69,7 @@ public class DataBase {
         
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:" + this.name);
+            c = DriverManager.getConnection("jdbc:sqlite:" + this.NAME);
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM WORKER" );
@@ -102,7 +101,7 @@ public class DataBase {
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:" + this.name);
+            c = DriverManager.getConnection("jdbc:sqlite:" + this.NAME);
 
             stmt = c.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS WORKER " +
