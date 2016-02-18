@@ -35,7 +35,7 @@ public class ChartWindow extends javax.swing.JFrame {
     }
 
     private void countWorkers(){
-        
+        this.jLabelWorkerCount.setText("Ilość pracowników : " + lista.size());
     }
     
     /**
@@ -49,14 +49,14 @@ public class ChartWindow extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListWorkers = new javax.swing.JList();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelWorkerCount = new javax.swing.JLabel();
+        jLabelAvgSalary = new javax.swing.JLabel();
         jButtonClose = new javax.swing.JButton();
         jButtonShowChart = new javax.swing.JButton();
         jComboBoxChart = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabelMaxSalary = new javax.swing.JLabel();
+        jLabelMinSalary = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Wykresy");
@@ -68,9 +68,9 @@ public class ChartWindow extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jListWorkers);
 
-        jLabel1.setText("Ilość pracowników :");
+        jLabelWorkerCount.setText("Ilość pracowników :");
 
-        jLabel2.setText("Średnie zarobki :");
+        jLabelAvgSalary.setText("Średnie zarobki :");
 
         jButtonClose.setText("Wyjście");
         jButtonClose.addActionListener(new java.awt.event.ActionListener() {
@@ -90,9 +90,9 @@ public class ChartWindow extends javax.swing.JFrame {
 
         jLabel4.setText("Wybierz wykres :");
 
-        jLabel5.setText("Największa płaca :");
+        jLabelMaxSalary.setText("Największa płaca :");
 
-        jLabel6.setText("Najmniejsza płaca :");
+        jLabelMinSalary.setText("Najmniejsza płaca :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,17 +117,17 @@ public class ChartWindow extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(20, 20, 20)
-                                        .addComponent(jLabel1))
+                                        .addComponent(jLabelWorkerCount))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel5))))
+                                            .addComponent(jLabelMinSalary)
+                                            .addComponent(jLabelMaxSalary))))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabelAvgSalary)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -137,13 +137,13 @@ public class ChartWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabelWorkerCount)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabelAvgSalary)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(jLabelMaxSalary)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
+                        .addComponent(jLabelMinSalary)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,11 +179,11 @@ public class ChartWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonClose;
     private javax.swing.JButton jButtonShowChart;
     private javax.swing.JComboBox jComboBoxChart;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelAvgSalary;
+    private javax.swing.JLabel jLabelMaxSalary;
+    private javax.swing.JLabel jLabelMinSalary;
+    private javax.swing.JLabel jLabelWorkerCount;
     private javax.swing.JList jListWorkers;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
