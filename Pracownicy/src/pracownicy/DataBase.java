@@ -33,10 +33,10 @@ public class DataBase {
             c = DriverManager.getConnection("jdbc:sqlite:" + this.NAME);
 
             stmt = c.createStatement();
-            String sql = "INSERT INTO WORKER(ID_CAR, NAME, NAME, SURNAME, YEAR, MONTH, "
+            String sql = "INSERT INTO WORKER(ID_WORKER, NAME, SURNAME, YEAR, MONTH, "
                                        + "DAY, SALARY, BONUS, STARTYEAR, COMPANY, POSITION)" +
-                       "VALUES(NULL, " + worker.getName() +
-                       ", '" + worker.getSurname() +
+                       "VALUES(NULL, '" + worker.getName() +
+                       "', '" + worker.getSurname() +
                        "', '" + worker.getYear() +
                        "', '" + worker.getMonth() +
                        "', '" + worker.getDay() +

@@ -72,4 +72,8 @@ public class Worker {
         return position;
     }
 
+    @Override
+    public String toString(){
+        return this.name + " " + this.surname + " - " + this.position;
+    }
 }
