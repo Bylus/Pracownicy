@@ -6,6 +6,7 @@
 package pracownicy;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -16,6 +17,7 @@ public class ChartWindow extends javax.swing.JFrame {
     private static ChartWindow chartWindow;
     private ArrayList<Worker> lista = new ArrayList<>();
     private DataBase db;
+    private DefaultListModel model;
     
     public synchronized static ChartWindow getInstance() {
         if (chartWindow == null) {
@@ -33,9 +35,33 @@ public class ChartWindow extends javax.swing.JFrame {
         this.lista = db.getWorkers();
         initComponents();
     }
+    
+    /**
+     * @desc update all info inside window
+     */
+    private void refresh(){
+        this.db = new DataBase();
+        this.lista = db.getWorkers();
+        this.updateList();
+        this.countWorkers();
+    }
 
+    /**
+     * @desc update label showing number of worker objects
+     */
     private void countWorkers(){
         this.jLabelWorkerCount.setText("Ilość pracowników : " + lista.size());
+    }
+    
+    /**
+     * Updates list with worker names, surenames and position
+     */
+    private void updateList(){
+        model.clear();
+        
+        for(int i = 0 ; i < lista.size() ; i++){
+            model.addElement(lista.get(i));
+        }
     }
     
     /**
@@ -51,7 +77,7 @@ public class ChartWindow extends javax.swing.JFrame {
         jListWorkers = new javax.swing.JList();
         jLabelWorkerCount = new javax.swing.JLabel();
         jLabelAvgSalary = new javax.swing.JLabel();
-        jButtonClose = new javax.swing.JButton();
+        jButtonRefresh = new javax.swing.JButton();
         jButtonShowChart = new javax.swing.JButton();
         jComboBoxChart = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
@@ -60,22 +86,23 @@ public class ChartWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Wykresy");
-
-        jListWorkers.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
         });
+
+        jListWorkers.setModel(model = new DefaultListModel());
         jScrollPane1.setViewportView(jListWorkers);
 
         jLabelWorkerCount.setText("Ilość pracowników :");
 
         jLabelAvgSalary.setText("Średnie zarobki :");
 
-        jButtonClose.setText("Wyjście");
-        jButtonClose.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRefresh.setText("Odświerz");
+        jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCloseActionPerformed(evt);
+                jButtonRefreshActionPerformed(evt);
             }
         });
 
@@ -112,7 +139,7 @@ public class ChartWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jComboBoxChart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jButtonRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -150,7 +177,7 @@ public class ChartWindow extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonClose)
+                            .addComponent(jButtonRefresh)
                             .addComponent(jButtonShowChart))))
                 .addContainerGap())
         );
@@ -170,13 +197,17 @@ public class ChartWindow extends javax.swing.JFrame {
      * @desc disposes of chartWindow
      * @param evt 
      */
-    private void jButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jButtonCloseActionPerformed
+    private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
+        this.refresh();
+    }//GEN-LAST:event_jButtonRefreshActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        this.refresh();
+    }//GEN-LAST:event_formComponentShown
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonClose;
+    private javax.swing.JButton jButtonRefresh;
     private javax.swing.JButton jButtonShowChart;
     private javax.swing.JComboBox jComboBoxChart;
     private javax.swing.JLabel jLabel4;
